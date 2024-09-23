@@ -1,39 +1,38 @@
 /* eslint-disable */
 import "bootstrap";
 import "./style.css";
-
-import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
+let btn = document.querySelector(".btn");
 
 window.onload = () => {
   //write your code here
-
-  document.querySelector(".card").classList.add(randomSuitGenerator());
-  document.querySelector(".card").innerHTML = randomNumGenerator();
+  btn.addEventListener("click", function() {
+    generateCard();
+  });
 };
 
-const randomNumGenerator = () => {
-  let numbers = [
-    "A",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "J",
-    "Q",
-    "K"
-  ];
-  let indexNumbers = Math.floor(Math.random() * numbers.length);
-  return numbers[indexNumbers];
-};
+const generateCard = () => {
+  let title = document.querySelector(".card-title");
+  let suits = ["♠️", "♥", "♠", "♣"];
+  let num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "K", "Q"];
 
-const randomSuitGenerator = () => {
-  let suit = ["diamond", "spade", "heart", "club"];
-  let indexSuit = Math.floor(Math.random() * suit.length);
-  return suit[indexSuit];
+  let randomSuits = suits[Math.floor(Math.random() * suits.length)];
+  let randomNum = num[Math.floor(Math.random() * num.length)];
+
+  if (randomSuits === "♣") {
+    btn.style.bakground = "black";
+    title.innerHTML = "Clubs";
+  } else if (randomSuits === "♥") {
+    btn.style.bakground = "red";
+    title.innerHTML = "Hearts";
+  } else if (randomSuits === "♠") {
+    btn.style.bakground = "black";
+    title.innerHTML = "Spades";
+  } else if (randomSuits === "♦") {
+    btn.style.bakground = "red";
+    title.innerHTML = "Diamonds";
+  }
+
+  document.querySelector(".suits").innerHTML = randomSuits;
+  document.querySelector(".num").innerHTML = randomNum;
 };
