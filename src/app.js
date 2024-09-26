@@ -33,6 +33,10 @@ const generateCard = () => {
     title.innerHTML = "Diamonds";
   }
 
-  document.querySelector(".suits").innerHTML = randomSuits;
+  let suitsElement = document.querySelectorAll(".suits");
+  suitsElement.forEach(suit => {
+    suit.innerHTML = randomSuits;
+  });
+
   document.querySelector(".num").innerHTML = randomNum;
 };

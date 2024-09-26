@@ -10,3 +10,11 @@ body {
 .num {
   font-size: 75px;
 }
+
+.suitsTop {
+  float: left;
+}
+
+.suitsBottom {
+  float: right;
+}
